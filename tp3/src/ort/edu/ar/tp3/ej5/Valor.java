@@ -1,0 +1,5 @@
+package ort.edu.ar.tp3.ej5;
+
+public enum Valor {
+	PRESTAMO_EXITOSO, NO_HAY_EJEMPLARES, TOPE_PRESTAMOS_ALCANZADO, MULTA_VIGENTE;
+}

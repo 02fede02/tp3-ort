@@ -37,5 +37,5 @@ public class Libro {
 	public void setAnio(String anio) {
 		this.anio = anio;
 	}
-	
+//	Todo metodo para recorrer la lista de ejemplares buscando aquel que no este en uso
 }
