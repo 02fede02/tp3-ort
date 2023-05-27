@@ -7,10 +7,10 @@ public class Libro {
 	private Genero genero;
 	private Editorial editorial;
 	private String anio;
-	private String autor;
+	private Autor autor;
 	private ArrayList<Ejemplar> ejemplares;
 	
-	public Libro(String libro, Genero genero, Editorial editorial, String anio, String autor) {
+	public Libro(String libro, Genero genero, Editorial editorial, String anio, Autor autor) {
 		this.libro = libro;
 		this.genero = genero;
 		this.editorial = editorial;
@@ -37,12 +37,5 @@ public class Libro {
 	public void setAnio(String anio) {
 		this.anio = anio;
 	}
-	public String getAutor() {
-		return autor;
-	}
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-	
 	
 }
