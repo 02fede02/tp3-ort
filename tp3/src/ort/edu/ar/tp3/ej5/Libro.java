@@ -37,5 +37,23 @@ public class Libro {
 	public void setAnio(String anio) {
 		this.anio = anio;
 	}
+	public int cantEjemplares() {
+		return ejemplares.size();
+	}
 //	Todo metodo para recorrer la lista de ejemplares buscando aquel que no este en uso
+	public Ejemplar buscarEjemplar() {
+		int i = 0;
+		Ejemplar ejemplarEncontrado = null;
+		
+		while(i < ejemplares.size() && ejemplarEncontrado == null) {
+			Ejemplar ejemplarActual = ejemplares.get(i);
+			
+			if(ejemplarActual.getEstado().equals(Estado.BIBLIOTECA)) {
+				ejemplarEncontrado = ejemplarActual;
+			} else {
+				i++;
+			}
+		}
+		return ejemplarEncontrado;
+	}
 }

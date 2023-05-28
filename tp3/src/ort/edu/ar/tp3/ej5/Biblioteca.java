@@ -31,7 +31,9 @@ public class Biblioteca {
 		
 //		TODO mejorar el metodo
 		if(lector.getCantLibrosVigentes() < 3 && libroPrestar.cantEjemplares() > 0) {
-			
+			Ejemplar ejemplar = libroPrestar.buscarEjemplar();
+			ejemplar.setEstado(Estado.PRESTADO);
+			lector.agregarPrestamo(ejemplar);
 			valorFinal = Valor.PRESTAMO_EXITOSO;
 		} else if(lector.getCantLibrosVigentes() < 3 && libroPrestar.cantEjemplares() == 0) {
 			valorFinal = Valor.NO_HAY_EJEMPLARES;
@@ -42,6 +44,5 @@ public class Biblioteca {
 		}
 		
 		return valorFinal;
-		
 	}
 }
