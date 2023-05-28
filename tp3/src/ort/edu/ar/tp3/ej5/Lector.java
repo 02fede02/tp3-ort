@@ -7,13 +7,16 @@ public class Lector {
 	private String nombre;
 	private String direccion;
 	private String telefono;
+	private boolean multaVigente;
 	private ArrayList<Ejemplar> prestamosVigentes;
+	
 	
 	public Lector(String dni, String nombre, String direccion, String telefono) {
 		this.dni = dni;
 		this.nombre = nombre;
 		this.direccion = direccion;
 		this.telefono = telefono;
+		this.multaVigente = false;
 		this.prestamosVigentes = new ArrayList<Ejemplar>();
 	}
 	public String getDni() {
@@ -43,5 +46,18 @@ public class Lector {
 	public int getCantLibrosVigentes() {
 		return prestamosVigentes.size();
 	}
-	
+	public void setMultaVigente() {
+		this.multaVigente = !multaVigente;
+	}
+	public boolean getMultaVigente() {
+		return this.multaVigente;
+	}
+	public void agregarPrestamo(Ejemplar ejemplar) {
+//		TODO MEJORAR EL METODO
+		if(prestamosVigentes.size() < 3) {
+			prestamosVigentes.add(ejemplar);
+		} else {
+			System.out.println("No puede tener mas prestamos");
+		}
+	}
 }
