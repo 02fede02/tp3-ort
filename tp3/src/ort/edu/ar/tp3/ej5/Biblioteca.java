@@ -27,10 +27,21 @@ public class Biblioteca {
 	
 	public Valor prestar(Libro libro, Lector lector) {
 		Libro libroPrestar = buscarLibro(libro);
+		Valor valorFinal;
 		
-		if(lector.getCantLibrosVigentes() < 3 && libroPrestar.) {
+//		TODO mejorar el metodo
+		if(lector.getCantLibrosVigentes() < 3 && libroPrestar.cantEjemplares() > 0) {
 			
+			valorFinal = Valor.PRESTAMO_EXITOSO;
+		} else if(lector.getCantLibrosVigentes() < 3 && libroPrestar.cantEjemplares() == 0) {
+			valorFinal = Valor.NO_HAY_EJEMPLARES;
+		} else if (lector.getCantLibrosVigentes() < 3 && libroPrestar.cantEjemplares() > 0 && lector.getCantLibrosVigentes() == 3) {
+			valorFinal = Valor.TOPE_PRESTAMOS_ALCANZADO;
+		} else {
+			valorFinal = Valor.MULTA_VIGENTE;
 		}
+		
+		return valorFinal;
 		
 	}
 }
