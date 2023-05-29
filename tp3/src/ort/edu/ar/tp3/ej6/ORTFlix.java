@@ -13,11 +13,11 @@ public class ORTFlix {
 		this.listaNegra = new ArrayList<Cliente>();
 	}
 	
-	private Cliente buscarCliente(String dni) {
+	private Cliente buscarCliente(String dni, ArrayList<Cliente> lista) {
 		Cliente clienteEncontrado = null;
 		int i = 0;
 		
-		while(i < clientes.size() && clienteEncontrado == null) {
+		while(i < lista.size() && clienteEncontrado == null) {
 			Cliente clienteActual = clientes.get(i);
 			
 			if(clienteActual.getDni().equals(dni)) {
@@ -47,7 +47,7 @@ public class ORTFlix {
 	
 	public OperacionVerPelicula verPelicula(String dni, String pelicula) {
 		OperacionVerPelicula estado = null;
-		Cliente cliente = buscarCliente(dni);
+		Cliente cliente = buscarCliente(dni, clientes);
 		Pelicula peliculaVer = buscarPelicula(pelicula);
 		
 		if(cliente == null) {
@@ -67,16 +67,39 @@ public class ORTFlix {
 	}
 	
 	public void darDeBaja(String dni) {
+		Cliente cliente = buscarCliente(dni, clientes);
 		
+		if(cliente != null) {
+			if(cliente.esDeudor()) {
+				listaNegra.add(cliente);
+			}
+			clientes.remove(cliente);
+		} else {
+			System.out.println("La persona que deseas eliminar no es cliente");
+		}
 	}
 	
 	public AltaCliente darDeAlta(String dni, Categoria categoria) {
 		AltaCliente estado = null;
+		Cliente cliente = buscarCliente(dni,clientes);
+		Cliente clienteVetado = buscarCliente(dni, listaNegra);
+		
+		if(cliente != null) {
+			estado = AltaCliente.CLIENTE_EXISTENTE;
+		} else if(clienteVetado != null) {
+			estado = AltaCliente.CLIENTE_DEUDOR;
+		} else {
+			estado = AltaCliente.ALTA_OK;
+		}
 		
 		return estado;
 	}
 	
 	public void depurarListaNegra(double importe) {
-		
+		for (Cliente cliente : listaNegra) {
+			if(cliente.getSaldoPagar() <= importe) {
+				listaNegra.remove(cliente);
+			}
+		}
 	}
 }
