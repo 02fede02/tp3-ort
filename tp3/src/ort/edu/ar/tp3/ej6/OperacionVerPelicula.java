@@ -1,0 +1,5 @@
+package ort.edu.ar.tp3.ej6;
+
+public enum OperacionVerPelicula {
+	CLIENTE_INEXISTENTE, CONTENIDO_INEXISTENTE, CLIENTE_DEUDOR, CONTENIDO_NO_DISPONIBLE, OK;
+}

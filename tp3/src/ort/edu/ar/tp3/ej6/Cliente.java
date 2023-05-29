@@ -7,9 +7,9 @@ public class Cliente {
 	private String nombre;
 	private double saldoPagar;
 	private ArrayList<Pelicula> historialPeliculas;
-	private Servicio suscripcion;
+	private Categoria suscripcion;
 	
-	public Cliente(String dni, String nombre, Servicio suscripcion) {
+	public Cliente(String dni, String nombre, Categoria suscripcion) {
 		super();
 		this.dni = dni;
 		this.nombre = nombre;
