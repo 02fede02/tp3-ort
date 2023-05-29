@@ -21,5 +21,8 @@ public class Cliente {
 		return saldoPagar > 0;
 	}
 	
+	public void agregarPelicula(Pelicula pelicula) {
+		historialPeliculas.add(pelicula);
+	}
 	
 }
