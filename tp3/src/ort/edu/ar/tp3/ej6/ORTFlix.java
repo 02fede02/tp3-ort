@@ -13,7 +13,11 @@ public class ORTFlix {
 		this.listaNegra = new ArrayList<Cliente>();
 	}
 	
-	private Cliente buscarCliente(String dni, ArrayList<Cliente> lista) {
+	public void agregarPelicula(Pelicula pelicula) {
+		this.catalogo.add(pelicula);
+	}
+	
+	public Cliente buscarCliente(String dni, ArrayList<Cliente> lista) {
 		Cliente clienteEncontrado = null;
 		int i = 0;
 		
@@ -56,7 +60,7 @@ public class ORTFlix {
 			estado = OperacionVerPelicula.CONTENIDO_INEXISTENTE;
 		} else if(cliente.esDeudor()) {
 			estado = OperacionVerPelicula.CLIENTE_DEUDOR;
-		} else if(!peliculaVer.getCategoria().equals(cliente.getSuscripcion())) {
+		} else if(!peliculaVer.getCategoria().equals(cliente.getSuscripcion()) && peliculaVer.getCategoria().equals(Categoria.PREMIUM)) {
 			estado = OperacionVerPelicula.CONTENIDO_NO_DISPONIBLE;
 		} else {
 			estado = OperacionVerPelicula.OK;
@@ -81,14 +85,15 @@ public class ORTFlix {
 	
 	public AltaCliente darDeAlta(String dni, Categoria categoria) {
 		AltaCliente estado = null;
-		Cliente cliente = buscarCliente(dni,clientes);
-		Cliente clienteVetado = buscarCliente(dni, listaNegra);
+		Cliente cliente = buscarCliente(dni,this.clientes);
+		Cliente clienteVetado = buscarCliente(dni, this.listaNegra);
 		
 		if(cliente != null) {
 			estado = AltaCliente.CLIENTE_EXISTENTE;
 		} else if(clienteVetado != null) {
 			estado = AltaCliente.CLIENTE_DEUDOR;
 		} else {
+			clientes.add(new Cliente(dni, categoria));
 			estado = AltaCliente.ALTA_OK;
 		}
 		
