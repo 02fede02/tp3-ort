@@ -35,14 +35,14 @@ public class Cancion {
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
-	public Contador getDiasPublicada() {
-		return diasPublicada;
+	public int getDiasPublicada() {
+		return diasPublicada.getAcumulador();
 	}
 	public void setDiasPublicada(Contador diasPublicada) {
 		this.diasPublicada = diasPublicada;
 	}
-	public Contador getVecesReproducida() {
-		return vecesReproducida;
+	public int getVecesReproducida() {
+		return vecesReproducida.getAcumulador();
 	}
 	public void setVecesReproducida(Contador vecesReproducida) {
 		this.vecesReproducida = vecesReproducida;

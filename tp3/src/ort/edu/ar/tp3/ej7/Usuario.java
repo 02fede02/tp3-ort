@@ -42,4 +42,8 @@ public class Usuario {
 	public void agregarCancion(Cancion cancion) {
 		this.canciones.add(cancion);
 	}
+	
+	public int cantCancionesEscuchadas() {
+		return this.canciones.size();
+	}
 }
