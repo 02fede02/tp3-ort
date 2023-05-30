@@ -86,5 +86,20 @@ public class Aplicacion {
 		return operacion;
 	}
 
+	public void listarUsuarios() {
+		for (Usuario usuario : usuarios) {
+			System.out.println(usuario.getEmail() + " escucho un total de " + usuario.cantCancionesEscuchadas() + " canciones.");
+		}
+	}
 	
+	public void listarCancionesPorUsuario(String dni) {
+		Usuario usuarioEncontrado = buscarUsuario(dni);
+		
+		if(usuarioEncontrado != null) {
+			usuarioEncontrado.mostrarCancionesEscuchadas();
+			System.out.println("Operacion exitosa");
+		} else {
+			System.out.println("El usuario que intentas buscar no existe");
+		}
+	}
 }
