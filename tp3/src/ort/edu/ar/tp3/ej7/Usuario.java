@@ -46,4 +46,10 @@ public class Usuario {
 	public int cantCancionesEscuchadas() {
 		return this.canciones.size();
 	}
+	
+	public void mostrarCancionesEscuchadas() {
+		for (Cancion cancion : canciones) {
+			System.out.println(cancion.getNombre() + " de " + cancion.getAutor());
+		}
+	}
 }
