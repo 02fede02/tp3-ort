@@ -92,8 +92,8 @@ public class Aplicacion {
 		}
 	}
 	
-	public void listarCancionesPorUsuario(String dni) {
-		Usuario usuarioEncontrado = buscarUsuario(dni);
+	public void listarCancionesPorUsuario(String email) {
+		Usuario usuarioEncontrado = buscarUsuario(email);
 		
 		if(usuarioEncontrado != null) {
 			usuarioEncontrado.mostrarCancionesEscuchadas();
