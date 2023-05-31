@@ -75,7 +75,7 @@ public class Aplicacion {
 			operacion = EscucharCancion.USUARIO_INEXISTENTE;
 		} else if(cancionEncontrada == null) {
 			operacion = EscucharCancion.CANCION_INEXISTENTE;
-		} else if(usuarioEncontrado.getCategoria() == Categoria.GRATUITO && usuarioEncontrado.cantCancionesEscuchadas() >= 50) {
+		} else if(usuarioEncontrado.getCategoria() == Categoria.GRATUITO && usuarioEncontrado.cantCancionesEscuchadas() <= 50) {
 			operacion = EscucharCancion.LIMITE_ALCANZADO;
 		}  else if(usuarioEncontrado.getCategoria() != Categoria.PREMIUM && (cancionEncontrada.getDiasPublicada() < 7 || cancionEncontrada.getVecesReproducida() < 1000)) {
 			operacion = EscucharCancion.CANCION_NO_DISPONIBLE;
