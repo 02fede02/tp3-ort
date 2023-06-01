@@ -17,7 +17,7 @@ public class Turno {
 		this.presencia = presencia;
 	}
 	
-	public void getPaciente() {
-		System.out.println(this.paciente);
+	public Paciente getPaciente() {
+		return this.paciente;
 	}
 }

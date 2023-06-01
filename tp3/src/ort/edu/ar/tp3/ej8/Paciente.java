@@ -41,6 +41,8 @@ public class Paciente {
 		return "Paciente " + this.nombre + ", " + apellido + " " + this.dni;
 	}
 	
-	
+	public boolean equals(String dni) {
+		return this.dni.equals(dni);
+	}
 	
 }
