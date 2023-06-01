@@ -38,7 +38,7 @@ public class Paciente {
 
 	@Override
 	public String toString() {
-		return "Paciente " + this.nombre + ", " + apellido + " " + this.dni ;
+		return "Paciente " + this.nombre + ", " + apellido + " " + this.dni;
 	}
 	
 	
