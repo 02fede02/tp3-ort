@@ -71,14 +71,17 @@ public class Piloto {
 		return promedioVueltas;
 	}
 
-
-
-	public void calcularVueltaPromedio() {
+	private void calcularVueltaPromedio() {
 		if(this.cantVueltas > 0 ) {
 			this.promedioVueltas = this.sumaTiempo / this.cantVueltas;
 		} else {
 			System.out.println("El piloto no realizo ninguna vuelta");
 		}
+	}
+	
+	public boolean estaPorDebajoDe(int tiempo) {
+		this.calcularVueltaPromedio();
+		return this.getCantVueltas() >= 10 && this.promedioVueltas < tiempo;
 	}
 	
 	public String toString() {
