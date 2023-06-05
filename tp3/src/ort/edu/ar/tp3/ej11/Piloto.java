@@ -17,6 +17,62 @@ public class Piloto {
 		this.promedioVueltas = 0;
 	}
 	
+	
+	
+	public int getCantVueltas() {
+		return cantVueltas;
+	}
+
+
+
+	public void setCantVueltas(int cantVueltas) {
+		this.cantVueltas = cantVueltas;
+	}
+
+
+
+	public double getTiempoVuelta() {
+		return tiempoVuelta;
+	}
+
+
+
+	public void setTiempoVuelta(double tiempoVuelta) {
+		this.tiempoVuelta = tiempoVuelta;
+	}
+
+
+
+	public double getSumaTiempo() {
+		return sumaTiempo;
+	}
+
+
+
+	public void setSumaTiempo(double sumaTiempo) {
+		this.sumaTiempo = sumaTiempo;
+	}
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public String getDni() {
+		return dni;
+	}
+
+
+
+	public double getPromedioVueltas() {
+		return promedioVueltas;
+	}
+
+
+
 	public void calcularVueltaPromedio() {
 		if(this.cantVueltas > 0 ) {
 			this.promedioVueltas = this.sumaTiempo / this.cantVueltas;
@@ -26,6 +82,6 @@ public class Piloto {
 	}
 	
 	public String toString() {
-		return this.nombre + " " + this.dni;
+		return this.getNombre() + " " + this.getDni();
 	}
 }
