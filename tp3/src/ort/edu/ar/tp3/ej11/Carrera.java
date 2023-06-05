@@ -17,5 +17,45 @@ public class Carrera {
 		this.pilotos = new ArrayList<Piloto>();
 	}
 	
+	public ArrayList<Piloto> buscarPilotosPorDebajoDe(int tiempo) {
+		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
+		
+		if(!this.pilotos.isEmpty()) {
+			for (Piloto piloto : this.pilotos) {
+				if(piloto.estaPorDebajoDe(tiempo)) {
+					pilotos.add(piloto);
+				}
+			}			
+		}
+		
+		return pilotos;
+	}
+	
+	public void agregarPiloto(ArrayList<Piloto> pilotos) {
+		
+		if(!this.pilotos.isEmpty()) {
+			for (Piloto piloto : this.pilotos) {
+				pilotos.add(piloto);
+			}
+		}
+	}
+	
+	public void mostrarMenorPromedio() {
+		Piloto pilotoMenorPromedio;
+		
+		if(!this.pilotos.isEmpty()) {
+			pilotoMenorPromedio = this.pilotos.get(0);
+			
+			for (Piloto piloto : this.pilotos) {
+				if(piloto.getPromedioVueltas() < pilotoMenorPromedio.getPromedioVueltas()) {
+					pilotoMenorPromedio = piloto;
+				}
+			}
+			
+			System.out.println(pilotoMenorPromedio);
+		} else {
+			System.out.println("No hay ningun piloto registrado en la carrera");
+		}
+	}
 	
 }
