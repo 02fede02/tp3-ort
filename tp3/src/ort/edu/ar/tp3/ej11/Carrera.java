@@ -17,6 +17,27 @@ public class Carrera {
 		this.pilotos = new ArrayList<Piloto>();
 	}
 	
+		
+	public int getFecha() {
+		return fecha;
+	}
+
+
+	public int getHora() {
+		return hora;
+	}
+
+
+	public Dificultad getDificultad() {
+		return dificultad;
+	}
+
+
+	public int getCantVueltas() {
+		return cantVueltas;
+	}
+
+
 	public ArrayList<Piloto> buscarPilotosPorDebajoDe(int tiempo) {
 		ArrayList<Piloto> pilotos = new ArrayList<Piloto>();
 		
