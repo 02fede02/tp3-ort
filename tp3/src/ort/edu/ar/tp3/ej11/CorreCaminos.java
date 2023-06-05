@@ -16,8 +16,7 @@ public class CorreCaminos {
 		while(i < this.carreras.size() && carreraEncontrada == null) {
 			Carrera carreraActual = this.carreras.get(i);
 			
-			if(carreraActual.getFecha() == fecha) {
-				//TODO hacer metodo para que lo compruebe la clase carrera
+			if(carreraActual.esLaFecha(fecha)) {
 				carreraEncontrada = carreraActual;
 			} else {
 				i++;

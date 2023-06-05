@@ -79,4 +79,7 @@ public class Carrera {
 		}
 	}
 	
+	public boolean esLaFecha(int fecha) {
+		return this.getFecha() == fecha;
+	}
 }
